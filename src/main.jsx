@@ -15,10 +15,10 @@ import Laptops from './Laptops/Laptops.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: Root,
+    Component:Root,
     children: [
       { index: true, Component: Home },
-      { path: 'mobiles', Component: Mobiles },
+      { path:'mobiles', Component:Mobiles},
       { path: 'laptop', Component: Laptops }
     ]
   },

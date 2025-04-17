@@ -3,7 +3,7 @@ import React from 'react';
 const Laptops = () => {
   return (
     <div>
-        <h1>I need macbook m3 pro</h1>
+        <h1>I need m3 pro</h1>
     </div>
   );
 };
