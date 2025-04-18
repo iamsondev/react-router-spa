@@ -13,7 +13,10 @@ import Mobiles from './Mobiles/Mobiles.jsx';
 import Laptops from './Laptops/Laptops.jsx';
 import Users from './Components/Users/Users.jsx';
 import Users2 from './Components/Users2/Users2.jsx';
-import UsersDertails from './Components/UsersDetails/UsersDertails.jsx';
+import UsersDertails from './Components/UserDetails/UserDertails.jsx';
+import UserDertails from './Components/UserDetails/UserDertails.jsx';
+import Posts from './Components/Posts/Posts.jsx';
+import PostDetails from './Components/PostDetails/PostDetails.jsx';
 const userPromise = fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json());
 
 const router = createBrowserRouter([
@@ -35,9 +38,21 @@ const router = createBrowserRouter([
       },
       {
         path:'users/:userId',
-        loader:({params}) => fetch('https://jsonplaceholder.typicode.com/users'),
-        Component:UsersDertails
-      }
+        loader:({params}) =>fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
+        Component:UserDertails
+      },
+      {
+        path: 'posts',
+        loader: () => fetch('https://jsonplaceholder.typicode.com/posts'),
+        Component:Posts
+       },
+
+       {
+        path: 'posts/:postId',
+        loader:({params}) => fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`),
+        Component:PostDetails
+       }
+      
 
     ]
   },
